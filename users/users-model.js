@@ -5,6 +5,7 @@ module.exports = {
   find,
   findBy,
   findById,
+  findByDepartment
 };
 
 function find() {
@@ -26,4 +27,10 @@ function findById(id) {
     .select('id', 'username', 'department')
     .where({ id })
     .first();
+}
+
+function findByDepartment(department) {
+  return db('users')
+    .select('id', 'username', 'department')
+    .where({ department })
 }
